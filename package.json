@@ -1,0 +1,22 @@
+{
+  "name": "loghooks-node",
+  "description": "Hook console log, process stdout for Node.js",
+  "url": "http://github.com/dpweb/loghooks-node/",
+  "keywords": [
+    "util",
+    "nodejs",
+    "configuration",
+    "config",
+    "log",
+	"hook"
+  ],
+  "author": {
+    "name": "C Borkert",
+    "email": "ILIKECHEESE@dpsw.info"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dpweb/loghooks-node.git"
+  },
+  "version": "0.0.1"
+}
