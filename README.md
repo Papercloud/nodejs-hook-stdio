@@ -2,16 +2,11 @@
 
 A simplified version of a great library: https://github.com/dpweb/loghooks-node. Allows you to grab the Node global process.stdout and process.stderr pipes and listen in.
 
-# Install
-
-    npm install
-    npm test
-
 # Docs
 The API is straightforward. Using either the stderr or the stdout function of the hook library, just pass in a handler function. The optional second argument is a true/false which controls whether or not the data is copied to the original destination or completely intercepted.
 
         //  Import the library.
-    var Hook = require('hook-stdfoo');
+    var Hook = require('hook-stdio');
 
         //  Setup up a little container variable for stderr.
     var errors = [];
@@ -26,7 +21,7 @@ The API is straightforward. Using either the stderr or the stdout function of th
 Or if you are running your javascript in the context of a [node-webkit](https://github.com/rogerwang/node-webkit) application:
 
         //  Import the library.
-    var Hook = require('hook-stdfoo');
+    var Hook = require('hook-stdio');
 
         //  Intercept messages passed to the stderr and stdout pipes and display them graphically.
     Hook.stdout(writeBlackTextToDOM, true);
