@@ -1,46 +1,33 @@
-loghooks-node
-==================
-###Simple helper to hook stdout, console log to remote clients, file, or custom function
+A simplified version of a great library: https://github.com/dpweb/loghooks-node. Allows you to grab the Node global process.stdout and process.stderr pipes and listen in.
 
-#### Example
+The API is straightforward. Using either the stderr or the stdout function of the hook library, just pass in a handler function. The optional second argument is a true/false which controls whether or not the data is copied to the original destination or completely intercepted.
 
-```javascript
-var hook = require('loghooks-node');
-hook.stdout(hook.tlsclient(8888, 'key.pem', 'cert.pem'), AlsoPrintToStdout=false);
-```
+        //  Import the library.
+    var Hook = require('hook-stdfoo');
 
-See the test-* files for examples
+        //  Setup up a little container variable for stderr.
+    var errors = [];
 
-There are many logging modules out there, but you may have used console.log, or stdout in
-existing code, right?
+        //  Intercept messages passed to the stderr pipe and add them to the array of errors.
+    Hook.stderr(errors.push, true);
 
-You would have to go back and rework that..  OR..  Just hook stdout with this module.
+    process.stderr.write('Something catastrophic!');
 
-#####Supported are:
- TCP client (connect to your app remotely for live log updates over telnet)  
-```javascript
-hook.stdout(hook.tcpclient(8888), AlsoPrintToStdout=false);
-```
- TLS client (like TCP but encrypted using tls/ssl)  
-```javascript
-hook.stdout(hook.tlsclient(8888, 'key.pem', 'cert.pem'), AlsoPrintToStdout=false);
-```
- File (just write to a file)  
-```javascript
-hook.stdout(hook.file('hookedlog.txt'), AlsoPrintToStdout=false);
-```
- Uncaught (hook uncaught exceptions)  
-```javascript
-hook.uncaught(function(s){
-  	console.log('caught exception here.. ' + s);
-});
-```
- Custom functions (use your function to handle console.log)
-```javascript
-function myfunc(s){
-  // note stdout was hooked, not stderr..
-	process.stderr.write('Custom func sez: '+s);
-}
+    //  Now errors == ['Something catastrophic!']
 
-hook.stdout(myfunc, AlsoPrintToStdout=false);
-```
+Or if you are running your javascript in the context of a [node-webkit](https://github.com/rogerwang/node-webkit) application:
+
+        //  Import the library.
+    var Hook = require('hook-stdfoo');
+
+        //  Intercept messages passed to the stderr and stdout pipes and display them graphically.
+    Hook.stdout(writeBlackTextToDOM, true);
+    Hook.stderr(writeRedTextToDOM, true);
+
+    function writeBlackTextToDOM (data) {
+        document.getElementById('myconsole').innerHTML += '<p style="color:black;" >'+data+'</p>';
+    };
+    
+    function writeRedTextToDOM (data) {
+        document.getElementById('myconsole').innerHTML += '<p style="color:red;" >'+data+'</p>';
+    };
