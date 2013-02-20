@@ -1,5 +1,5 @@
 {
-  "name": "hook-stdfoo",
+  "name": "hook-stdio",
   "version": "0.0.1",
   "description": "Hook process stdout and stderr.",
   "author": {
@@ -17,6 +17,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jsdavo/hook-stdfoo"
+    "url": "https://github.com/Papercloud/nodejs-hook-stdio"
   }
 }
