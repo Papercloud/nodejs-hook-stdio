@@ -1,5 +1,13 @@
+#Intro
+
 A simplified version of a great library: https://github.com/dpweb/loghooks-node. Allows you to grab the Node global process.stdout and process.stderr pipes and listen in.
 
+# Install
+
+    npm install
+    npm test
+
+# Docs
 The API is straightforward. Using either the stderr or the stdout function of the hook library, just pass in a handler function. The optional second argument is a true/false which controls whether or not the data is copied to the original destination or completely intercepted.
 
         //  Import the library.
@@ -31,3 +39,4 @@ Or if you are running your javascript in the context of a [node-webkit](https://
     function writeRedTextToDOM (data) {
         document.getElementById('myconsole').innerHTML += '<p style="color:red;" >'+data+'</p>';
     };
+
