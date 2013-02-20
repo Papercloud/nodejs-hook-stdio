@@ -1,22 +1,28 @@
 {
-  "name": "loghooks-node",
-  "description": "Hook console log, process stdout for Node.js",
-  "url": "http://github.com/dpweb/loghooks-node/",
+  "name": "hook-stdfoo",
+  "version": "0.0.1",
+  "description": "Hook process stdout and stderr.",
+  "author": {
+    "name": "James Davidson",
+    "email": "jsdavo@gmail.com"
+  },
   "keywords": [
-    "util",
-    "nodejs",
-    "configuration",
-    "config",
+    "stderr",
+    "stdout",
+    "stream",
     "log",
 	"hook"
   ],
-  "author": {
-    "name": "C Borkert",
-    "email": "ILIKECHEESE@dpsw.info"
+  "dependencies" : {
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/dpweb/loghooks-node.git"
+    "url": "https://github.com/jsdavo/hook-stdfoo"
   },
-  "version": "0.0.1"
+  "devDependencies": {
+    "tap":"0.4.0"
+  },
+  "scripts" : {
+    "test" : "tap test/*"
+  }
 }
