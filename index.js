@@ -8,6 +8,10 @@ module.exports = {
                 callback(string, encoding, fd)
             }
         })(process.stderr.write)
+
+		return function() {
+			process.stderr.write = oldstderr;
+		}
     },
 
     stdout: function(callback, addl) {
@@ -18,6 +22,10 @@ module.exports = {
                 callback(string, encoding, fd)
             }
         })(process.stdout.write)
+
+		return function() {
+			process.stdout.write = oldstdout;
+		}
     }
 
 };

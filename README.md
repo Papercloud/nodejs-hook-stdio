@@ -35,3 +35,13 @@ Or if you are running your javascript in the context of a [node-webkit](https://
         document.getElementById('myconsole').innerHTML += '<p style="color:red;" >'+data+'</p>';
     };
 
+To restore the pipe to what it was, `Hook.stdout` and `Hook.stderr` return a
+function you can call:
+
+	    //  Import the library.
+	var Hook = require('hook-stdio');
+
+	var unhook = Hook.stderr(someFn, true);
+
+		// Later, to restore the stream to what it was
+	unhook();
